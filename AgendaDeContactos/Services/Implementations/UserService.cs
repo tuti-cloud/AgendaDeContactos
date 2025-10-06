@@ -46,15 +46,14 @@ namespace AgendaDeContactos.Services.Implementations
 
         public void Update(CreateAndUpdateUserDto dto, int userid)
         {
-            var user = _userRepository.GetById(userid);
-            if (user is null) return;
+            var user = new User()
+            {
 
-            if (dto.FirstName is not null) user.FirstName = dto.FirstName;
-            if (dto.FirstName is not null) user.FirstName = dto.FirstName;
-            if (dto.FirstName is not null) user.FirstName = dto.FirstName;
-            if (dto.FirstName is not null) user.FirstName = dto.FirstName;
-
-            _userRepository.Update(user, userid);
+                FirstName = dto.FirstName,
+                LastName = dto.LastName,
+                Password = dto.Password,
+            };
+             _userRepository.Update(user, userid);
         }
 
     }

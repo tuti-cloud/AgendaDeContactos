@@ -103,19 +103,20 @@ public ContactDto? GetOneByUser(int userId, int contactId)
 
         public void Update(UpdateContactDto dto, int contactId)
         {
-            var contact = _contactRepository.GetByContactId(contactId);
-            if (contact is null) return;
+            Contact? contact = _contactRepository.GetByContactId(contactId);
+            if (contact is not null) 
 
-            
-            if (dto.FirstName is not null) contact.FirstName = dto.FirstName;
-            if (dto.LastName is not null) contact.LastName = dto.LastName;
-            if (dto.Address is not null) contact.Address = dto.Address;
-            if (dto.Number is not null) contact.Number = dto.Number;
-            if (dto.Email is not null) contact.Email = dto.Email;
-            if (dto.Image is not null) contact.Image = dto.Image;
-            if (dto.Company is not null) contact.Company = dto.Company;
-            if (dto.Description is not null) contact.Description = dto.Description;
-            if (dto.IsFavorite.HasValue) contact.IsFavorite = dto.IsFavorite.Value;
+            {
+                contact.FirstName = dto.FirstName;
+            contact.LastName = dto.LastName;
+                contact.Address = dto.Address;
+                contact.Number = dto.Number;
+                contact.Email = dto.Email;
+            contact.Image = dto.Image;
+                contact.Company = dto.Company;
+                contact.Description = dto.Description;
+                contact.IsFavorite = dto.IsFavorite.Value;
+            }
 
             _contactRepository.Update(contact, contactId);
         }

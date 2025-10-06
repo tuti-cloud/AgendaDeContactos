@@ -61,7 +61,7 @@ namespace AgendaDeContactos.Controllers
         }
 
         [HttpPut]
-        [Route("userid")]
+        [Route("{userid}")]
         public IActionResult UpdateContact(int id, UpdateContactDto dto)
         {
             if (dto == null) return BadRequest();

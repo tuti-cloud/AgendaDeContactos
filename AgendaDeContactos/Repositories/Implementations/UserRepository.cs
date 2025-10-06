@@ -62,13 +62,13 @@ namespace AgendaDeContactos.Repositories.Implementations
             User? user = Users.SingleOrDefault(user => user.Id == userid);
             if (user is not null)
             {
-                user.Email = updatedUser.Email;
+               
                 user.LastName = updatedUser.LastName;
                 user.FirstName = updatedUser.FirstName;
                 user.Password = updatedUser.Password;
 
             }
-            
+
         }
     }
 }

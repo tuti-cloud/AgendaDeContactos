@@ -41,9 +41,9 @@ namespace AgendaDeContactos.Controllers
         {
             return Ok(UserService.GetById(userid));
         }
-    
-         [HttpPut]
-        [Route("userid")]
+
+        [HttpPut]
+        [Route("{userid}")]
 
         public ActionResult UpdateUser(int userid, CreateAndUpdateUserDto dto)
         {
